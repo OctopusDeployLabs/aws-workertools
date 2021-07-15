@@ -3,7 +3,7 @@ name: Docker Image CI
 on:
   push:
     branches: [ main ]
-    schedule:
+  schedule:
     - cron: '0 5 * * *'
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
         $versionSplit = $version.Split(".")
         $versionToCompare = "$($versionSplit[0]).$($versionSplit[1]).$($versionSplit[2])"
 
-        $workerToolsTags = Invoke-RestMethod "https://registry.hub.docker.com/v1/repositories/octopuslabs/aws-flyway-workertools/tags"
+        $workerToolsTags = Invoke-RestMethod "https://registry.hub.docker.com/v1/repositories/octopuslabs/aws-workertools/tags"
         $matchingTag = $workerToolsTags | Where-Object { $_.name -eq $versionToCompare }
 
         echo "::set-output name=VERSION::$versionToCompare"
