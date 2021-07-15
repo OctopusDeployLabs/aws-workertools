@@ -13,6 +13,6 @@ RUN choco install awscli -y --no-progress
 RUN choco install ecs-cli -y --no-progress; `
     refreshenv
 
-Install-Module -Force -Name AWS.Tools.Installer -AllowClobber -Scope AllUsers
+Run Install-Module -Force -Name AWS.Tools.Installer -AllowClobber -Scope AllUsers
 
-Install-Module -Force -Name AWS.Tools.Common -AllowClobber -Scope AllUsers
+Run Install-Module -Force -Name AWS.Tools.Common -AllowClobber -Scope AllUsers
