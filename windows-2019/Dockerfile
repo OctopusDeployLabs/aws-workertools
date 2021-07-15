@@ -13,6 +13,5 @@ RUN choco install awscli -y --no-progress
 RUN choco install ecs-cli -y --no-progress; `
     refreshenv
 
-Run Install-Module -Force -Name AWS.Tools.Installer -AllowClobber -Scope AllUsers
-
-Run Install-Module -Force -Name AWS.Tools.Common -AllowClobber -Scope AllUsers
+RUN Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force; `
+    Install-Module -name AWSPowerShell.NetCore -Force
