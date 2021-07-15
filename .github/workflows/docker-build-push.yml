@@ -16,7 +16,7 @@ jobs:
     steps:    
     - uses: actions/checkout@v2
     - id: step1
-      name: Compare latest flyway version with container
+      name: Compare latest version with container
       run: |
         $chocoInformationRaw = choco info awscli --limitoutput
         $version = ($chocoInformationRaw.Split("|"))[1]
