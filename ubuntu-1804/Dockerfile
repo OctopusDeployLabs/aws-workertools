@@ -19,9 +19,6 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
 RUN curl --silent --location "https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest" -o /usr/local/bin/ecs-cli && \
     chmod +x /usr/local/bin/ecs-cli
 
-SHELL ["pwsh", "-Command"]
-# AWS PowerShell Tools Installer
-#run Install-Module -Name AWS.Tools.Installer -Scope AllUsers
+RUN pwsh -c 'Install-Module -Force -Name AWS.Tools.Installer -AllowClobber -Scope AllUsers'
 
-# AWS PowerShell Tools Common
-run Install-Module -Name AWS.Tools.Common -Scope AllUsers
+RUN pwsh -c 'Install-Module -Force -Name AWS.Tools.Common -AllowClobber -Scope AllUsers'

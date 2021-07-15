@@ -5,6 +5,7 @@ This repository contains images that contain the tooling necessary to to use the
 - AWS CLI
 - AWS ECS
 - TerraForm
+- AWS PowerShell Tools Common
 
 There are three images built in this repo:
 
