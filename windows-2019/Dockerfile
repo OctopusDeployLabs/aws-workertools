@@ -13,5 +13,9 @@ RUN choco install awscli -y --no-progress
 RUN choco install ecs-cli -y --no-progress; `
     refreshenv
 
+# # Install eksctl
+RUN choco install eksctl -y --no-progress; `
+    refreshenv
+
 RUN Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force; `
     Install-Module -name AWSPowerShell.NetCore -Force
