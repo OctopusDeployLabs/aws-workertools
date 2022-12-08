@@ -2,9 +2,9 @@ FROM octopuslabs/workertools:latest-ubuntu.2004
 
 # Get Terraform
 # https://developer.hashicorp.com/terraform/downloads
-RUN wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg && \
-    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list && \
-    sudo apt update && sudo apt install terraform
+RUN wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | tee /usr/share/keyrings/hashicorp-archive-keyring.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list && \
+    apt update && apt install terraform
 
 # Get AWS CLI
 # https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html#install-linux-awscli
