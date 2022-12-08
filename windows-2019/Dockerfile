@@ -6,14 +6,14 @@ SHELL ["powershell", "-Command"]
 # Install Terraform
 RUN choco install terraform -y --no-progress
 
-# # Install AWS CLI
+# Install AWS CLI
 RUN choco install awscli -y --no-progress
 
-# # Install ECS CLI
+# Install ECS CLI
 RUN choco install ecs-cli -y --no-progress; `
     refreshenv
 
-# # Install eksctl
+# Install eksctl
 RUN choco install eksctl -y --no-progress; `
     refreshenv
 

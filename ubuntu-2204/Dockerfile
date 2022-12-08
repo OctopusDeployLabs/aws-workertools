@@ -1,10 +1,10 @@
-FROM octopuslabs/workertools:latest-ubuntu.1804
+FROM octopuslabs/workertools:latest-ubuntu.2204
 
 # Get Terraform
-# https://computingforgeeks.com/how-to-install-terraform-on-ubuntu-centos-7/
-RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - && \
-    apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" && \
-    apt-get update && apt-get install terraform -y
+# https://developer.hashicorp.com/terraform/downloads
+RUN wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list && \
+    sudo apt update && sudo apt install terraform
 
 # Get AWS CLI
 # https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html#install-linux-awscli
